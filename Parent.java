@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.oldschooladventures.mcc;
+package mutantCrawlClassicsZeroLvGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;

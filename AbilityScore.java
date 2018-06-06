@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.oldschooladventures.mcc;
+package mutantCrawlClassicsZeroLvGenerator;
 
 /**
  * @author Mark Tasaka

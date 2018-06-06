@@ -1,4 +1,4 @@
-package org.oldschooladventures.mcc;
+package mutantCrawlClassicsZeroLvGenerator;
 
 import java.util.Arrays;
 import java.util.Collections;
