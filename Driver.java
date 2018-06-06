@@ -46,7 +46,8 @@ public class Driver {
 		System.out.println("Will Save: " + character.getReflexSave());
 
 		System.out.println("\nLucky Sign: " + character.getBirthAugurDescription());
-		System.out.println("\nEquipment:\n" + character.getProfessionGear());
+		System.out.println("\nEquipment:\n" + character.getProfessionGear() 
+		+ "\n" + character.getStartingGear());
 
 	}
 

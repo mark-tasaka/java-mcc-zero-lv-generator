@@ -22,7 +22,11 @@ public class DependantStatistic extends AbilityScore {
 	private String professionDescription;
 	private String professionGear;
 	
+	private StartingGear randomStartingGear;
+	private String startingGear;
 	
+
+
 	Random rand = new Random();
 	
 
@@ -40,6 +44,9 @@ public class DependantStatistic extends AbilityScore {
 		randomProfession = Profession.findProfession(rand);
 		professionDescription = Profession.professionDescription(randomProfession);
 		professionGear = Profession.professionGear(randomProfession);
+		
+		randomStartingGear = StartingGear.findStartingGear(rand);
+		startingGear = StartingGear.startingGearDescription(randomStartingGear);
 		
 		
 		
@@ -128,6 +135,19 @@ public class DependantStatistic extends AbilityScore {
 
 	public Profession getRandomProfession() {
 		return randomProfession;
+	}
+	
+	
+	public StartingGear getRandomStartingGear() {
+		return randomStartingGear;
+	}
+
+	public String getStartingGear() {
+		return startingGear;
+	}
+
+	public void setStartingGear(String startingGear) {
+		this.startingGear = startingGear;
 	}
 
 }
