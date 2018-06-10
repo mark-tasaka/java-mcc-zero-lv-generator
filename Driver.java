@@ -1,6 +1,3 @@
-/**
- * 
- */
 package mutantCrawlClassicsZeroLvGenerator;
 
 /**
@@ -17,29 +14,36 @@ public class Driver {
 	public static void main(final String[] argv) {
 		
 		DependantStatistic character = new DependantStatistic(6, 3, 0, 0);
-		
+
+		//DependantStatistic character = new DependantStatistic(0, 0, 0, 18);
 
 		System.out.println("Base AC: " + 
-		character.generateBaseArmourClass(character.getNumbericAgilityMod()) );
+		character.generateBaseArmourClass(character.getAgilityModifier()) );
 		
 		System.out.println("Hit Points: " + 
-		character.generateHitPoints(character.getNumbericStaminaMod()));
+		character.generateHitPoints(character.getStaminaModifier()));
 
 		System.out.println("Profession: " + 
 		character.getProfessionDescription());
 		
 		System.out.println("\nStrength: " + character.getStrength() + 
-				" (" + character.getStrengthModifier() + ")");
+				" (" + addSign(character.getStrengthModifier()) 
+				+ character.getStrengthModifier() + ")");
 		System.out.println("Agility: " + character.getAgility() + 
-				" (" + character.getAgilityModifier() + ")");
+				" (" + addSign(character.getAgilityModifier()) + 
+				character.getAgilityModifier() + ")");
 		System.out.println("Stamina: " + character.getStamina() + 
-				" (" + character.getStaminaModifier() + ")");
+				" (" + addSign(character.getStaminaModifier()) + 
+				character.getStaminaModifier() + ")");
 		System.out.println("Personality: " + character.getPersonality() + 
-				" (" + character.getPersonalityModifier() + ")");
+				" (" + addSign(character.getPersonalityModifier()) + 
+				character.getPersonalityModifier() + ")");
 		System.out.println("Intelligence: " + character.getIntelligence() + 
-				" (" + character.getIntelligenceModifier() + ")");
+				" (" + addSign(character.getIntelligenceModifier()) +
+				character.getIntelligenceModifier() + ")");
 		System.out.println("Luck: " + character.getLuck() + 
-				" (" + character.getLuckModifier() + ")");
+				" (" + addSign(character.getLuckModifier()) + 
+				character.getLuckModifier() + ")");
 		
 		System.out.println("\nReflex Save: " + character.getReflexSave());
 		System.out.println("Fort Save: " + character.getFortSave());
@@ -49,6 +53,18 @@ public class Driver {
 		System.out.println("\nEquipment:\n" + character.getProfessionGear() 
 		+ "\n" + character.getStartingGear());
 
+	}
+	
+	public static String addSign(int modifier)
+	{
+		String sign = "";
+		
+		if(modifier >= 0)
+		{
+			sign = "+";
+		}
+		
+		return sign;
 	}
 
 }

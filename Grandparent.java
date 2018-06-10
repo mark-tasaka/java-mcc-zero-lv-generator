@@ -14,10 +14,9 @@ public interface Grandparent {
 	public abstract int rollDice(int numberOfSides, int numberOfDiceRolled, 
 			int numberOfDiceRemoved, int baseValue);
 	
-	public abstract String abilityModifier (final int abilityScore);
+	public abstract int abilityModifier (final int abilityScore);
 	
-	public abstract int numbericAbilityModifier (final String abilityMod);
 	
-	//public abstract int test();
+	
 
 }

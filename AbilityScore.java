@@ -21,19 +21,13 @@ public class AbilityScore extends Parent {
 	private int intelligence;
 	private int luck;
 	
-	private String strengthModifier;
-	private String agilityModifier;
-	private String staminaModifier;
-	private String personalityModifier;
-	private String intelligenceModifier;
-	private String luckModifier;
-	
-	private int numbericStrengthMod;
-	private int numbericAgilityMod;
-	private int numbericStaminaMod;
-	private int numbericPersonalityMod;
-	private int numbericIntelligenceMod;
-	private int numbericLuckMod;
+
+	private int strengthModifier;
+	private int agilityModifier;
+	private int staminaModifier;
+	private int personalityModifier;
+	private int intelligenceModifier;
+	protected int luckModifier;
 	
 	
 	public AbilityScore(final int type, final int dieTotal, final int dieRemoved, final int addValue)
@@ -58,12 +52,6 @@ public class AbilityScore extends Parent {
 		intelligenceModifier = abilityModifier(intelligence);
 		luckModifier = abilityModifier(luck);
 		
-		numbericStrengthMod = numbericAbilityModifier(strengthModifier);
-		numbericAgilityMod = numbericAbilityModifier(agilityModifier);
-		numbericStaminaMod = numbericAbilityModifier(staminaModifier);
-		numbericPersonalityMod = numbericAbilityModifier(personalityModifier);
-		numbericIntelligenceMod = numbericAbilityModifier(intelligenceModifier);
-		numbericLuckMod = numbericAbilityModifier(luckModifier);
 		
 	}
 	
@@ -117,64 +105,32 @@ public class AbilityScore extends Parent {
 		return luck;
 	}
 
-	public String getStrengthModifier() {
+	public int getStrengthModifier() {
 		return strengthModifier;
 	}
 
-	public String getAgilityModifier() {
+	public int getAgilityModifier() {
 		return agilityModifier;
 	}
 
-	public String getStaminaModifier() {
+	public int getStaminaModifier() {
 		return staminaModifier;
 	}
 
-	public String getPersonalityModifier() {
+	public int getPersonalityModifier() {
 		return personalityModifier;
 	}
 
-	public String getIntelligenceModifier() {
+	public int getIntelligenceModifier() {
 		return intelligenceModifier;
 	}
 
-	public String getLuckModifier() {
+	public int getLuckModifier() {
 		return luckModifier;
 	}
 
-	public int getNumbericStrengthMod() {
-		return numbericStrengthMod;
-	}
-
-	public int getNumbericAgilityMod() {
-		return numbericAgilityMod;
-	}
-
-	public int getNumbericStaminaMod() {
-		return numbericStaminaMod;
-	}
-
-	public int getNumbericPersonalityMod() {
-		return numbericPersonalityMod;
-	}
-
-	public int getNumbericIntelligenceMod() {
-		return numbericIntelligenceMod;
-	}
-
-	public int getNumbericLuckMod() {
-		return numbericLuckMod;
-	}
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 }

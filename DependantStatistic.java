@@ -12,17 +12,19 @@ public class DependantStatistic extends AbilityScore {
 	
 	private int baseArmourClass = 0;
 	private int hitPoints;
-	private String reflexSave;
-	private String fortSave;
-	private String willSave;
+	private int reflexSave;
+	private int fortSave;
+	private int willSave;
+	private int initiative;
 	
 	private BirthAugur luckySign;
 	private String birthAugurDescription;
-	private Profession randomProfession;
+	
+	private final Profession randomProfession;
 	private String professionDescription;
 	private String professionGear;
 	
-	private StartingGear randomStartingGear;
+	private final StartingGear randomStartingGear;
 	private String startingGear;
 	
 
@@ -34,9 +36,10 @@ public class DependantStatistic extends AbilityScore {
 	{
 		super(type, dieTotal, dieRemoved, addValue);
 		
-		reflexSave = getAgilityModifier();
-		fortSave = getStaminaModifier();
-		willSave = getPersonalityModifier();
+		reflexSave = getAgilityModifier() + adjustReflex(luckySign);
+		fortSave = getStaminaModifier() + adjustFort(luckySign);
+		willSave = getPersonalityModifier() + adjustWill(luckySign);
+		initiative = getAgilityModifier() + adjustInit(luckySign);
 		
 		luckySign = BirthAugur.birthSign(rand);
 		birthAugurDescription = BirthAugur.augurDescription(luckySign);
@@ -89,19 +92,31 @@ public class DependantStatistic extends AbilityScore {
 		
 		setHitPoints(hp + staminaMod);
 		
-		return getHitPoints();
+		int hitPoints = getHitPoints();
+		
+		if(hitPoints < 1)
+		{
+			hitPoints = 1;
+		}
+		
+		return hitPoints;
+		//return getHitPoints();
 	}
 
-	public String getReflexSave() {
+	public int getReflexSave() {
 		return reflexSave;
 	}
 
-	public String getFortSave() {
+	public int getFortSave() {
 		return fortSave;
 	}
 
-	public String getWillSave() {
+	public int getWillSave() {
 		return willSave;
+	}
+
+	public int getInitiative() {
+		return initiative;
 	}
 
 	public String getBirthAugurDescription() {
@@ -148,6 +163,59 @@ public class DependantStatistic extends AbilityScore {
 
 	public void setStartingGear(String startingGear) {
 		this.startingGear = startingGear;
+	}
+	
+	/*Add luck modifier to Reflex if Lucky Sign allows*/
+	public int adjustReflex(final BirthAugur luckySign)
+	{
+		int adjustment = 0;
+		
+		if(luckySign == BirthAugur.SURVIVOR || luckySign == BirthAugur.SCIENTIST)
+		{
+			adjustment = luckModifier;
+		}
+		
+		return adjustment;
+	}
+	
+	/*Add luck modifier to Fortitude if Lucky Sign allows*/
+	public int adjustFort(final BirthAugur luckySign)
+	{
+		int adjustment = 0;
+		
+		if(luckySign == BirthAugur.SURVIVOR || luckySign == BirthAugur.GLOW)
+		{
+			adjustment = luckModifier;
+		}
+		
+		return adjustment;
+	}
+	
+	
+	/*Add luck modifier to Will if Lucky Sign allows*/
+	public int adjustWill(final BirthAugur luckySign)
+	{
+		int adjustment = 0;
+		
+		if(luckySign == BirthAugur.SURVIVOR || luckySign == BirthAugur.ESPER)
+		{
+			adjustment = luckModifier;
+		}
+		
+		return adjustment;
+	}
+	
+	/*Add luck modifier to Initiative if Lucky Sign allows*/
+	public int adjustInit(final BirthAugur luckySign)
+	{
+		int adjustment = 0;
+		
+		if(luckySign == BirthAugur.CPU)
+		{
+			adjustment = getLuckModifier();
+		}
+		
+		return adjustment;
 	}
 
 }

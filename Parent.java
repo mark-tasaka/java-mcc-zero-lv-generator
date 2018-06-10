@@ -56,81 +56,42 @@ public abstract class Parent implements Grandparent {
 		return sum + baseValue;
 	}
 	
-	public String abilityModifier (final int abilityScore)
-	{
-		String modifer = null;
-		
-		if(abilityScore == 3)
-		{
-			modifer = "-3";
-		}
-		else if(abilityScore >= 4 && abilityScore <=5)
-		{
-			modifer = "-2";
-		}
-		else if(abilityScore >= 6 && abilityScore <=8)
-		{
-			modifer = "-1";
-		}
-		else if(abilityScore >= 9 && abilityScore <=12)
-		{
-			modifer = "+0";
-		}
-		else if(abilityScore >= 13 && abilityScore <=15)
-		{
-			modifer = "+1";
-		}
-		else if(abilityScore >= 16 && abilityScore <=17)
-		{
-			modifer = "+2";
-		}
-		else if(abilityScore == 18)
-		{
-			modifer = "+3";
-		}
-		else
-		{
-			modifer = "Error";
-		}
-		
-		return modifer;
-	}
-	
-	public int numbericAbilityModifier (final String abilityMod)
+	public int abilityModifier (final int abilityScore)
 	{
 		int modifer = -4;
 		
-		if(abilityMod == "-3")
+		if(abilityScore == 3)
 		{
 			modifer = -3;
 		}
-		else if(abilityMod == "-2")
+		else if(abilityScore >= 4 && abilityScore <=5)
 		{
 			modifer = -2;
 		}
-		else if(abilityMod == "-1")
+		else if(abilityScore >= 6 && abilityScore <=8)
 		{
 			modifer = -1;
 		}
-		else if(abilityMod == "+0")
+		else if(abilityScore >= 9 && abilityScore <=12)
 		{
 			modifer = 0;
 		}
-		else if(abilityMod == "+1")
+		else if(abilityScore >= 13 && abilityScore <=15)
 		{
 			modifer = 1;
 		}
-		else if(abilityMod == "+2")
+		else if(abilityScore >= 16 && abilityScore <=17)
 		{
 			modifer = 2;
 		}
-		else if(abilityMod == "+3")
+		else if(abilityScore == 18)
 		{
 			modifer = 3;
 		}
 		
 		return modifer;
 	}
+	
 
 
 }
